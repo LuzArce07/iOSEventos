@@ -18,9 +18,18 @@ class Evento {
     var tipoEvento : String?
     
     init(nombre : String, fecha : String, urlFlyer : String) {
+        
         self.nombre = nombre
         self.fecha = fecha
         self.urlFlyer = urlFlyer
+        
+    }
+    
+    init(diccionario : NSDictionary) {
+        
+        self.nombre = "nombre"
+        self.fecha = "fecha"
+        self.urlFlyer = "urlFlyer"
         
     }
     
