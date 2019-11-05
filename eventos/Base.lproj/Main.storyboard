@@ -34,7 +34,7 @@
                                                 </imageView>
                                                 <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Px-X6-ujF">
                                                     <rect key="frame" x="0.0" y="-9" width="414" height="181"/>
-                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" red="0.56434202742415907" green="0.39100328065114764" blue="0.58105844259999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fecha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMv-EZ-US5">
                                                     <rect key="frame" x="338" y="18" width="56" height="26"/>
@@ -87,6 +87,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="qfT-ST-w25"/>
+                    <connections>
+                        <outlet property="tvEventos" destination="9Uu-9b-w0V" id="ChV-8d-rsA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

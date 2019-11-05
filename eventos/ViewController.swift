@@ -8,10 +8,13 @@
 
 import UIKit
 import Alamofire
+import AlamofireImage
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var eventos : [Evento] = []
+    
+    @IBOutlet weak var tvEventos: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +38,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                             }
                             
                         }
+                                                
+                        self.tvEventos.reloadData()
                         
                     }
                 
@@ -52,7 +57,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
+        
         return 1
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,12 +68,36 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 163
+        
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let celda = tableView.dequeueReusableCell(withIdentifier: "celdaEvento") as? CeldaEventoController
         
-        celda? .lblNombre.text = eventos[indexPath.row].nombre
+        celda?.lblNombre.text = eventos[indexPath.row].nombre
         celda?.lblFecha.text = eventos[indexPath.row].fecha
+        
+        AF.request(eventos[indexPath.row].urlFlyer).responseImage{
+            
+            response in
+            
+            switch(response.result) {
+                
+            case .success(let data) :
+                
+                celda?.imgFlyer.image = data
+                
+            case .failure(_) :
+                
+                print("Algo salió mal")
+                
+            }
+            
+        }
         
         return celda!
         
